@@ -7,4 +7,6 @@ private:
 
 public:
 	GL(const char* windowName, int windowWidth, int windowHeight);
+	static void ProcessEvents();
+	static void ProcessKeyboardEvent(SDL_Keysym key);
 };

@@ -6,7 +6,7 @@
 #include "iostream"
 
 const int SCREEN_WIDTH = 1920;
-const int SCREEN_HEIGHT = 1920;
+const int SCREEN_HEIGHT = 1080;
 
 int bpp = 0;
 int flags = 0;
@@ -27,14 +27,7 @@ int main() {
 
 	// Main game loop
 	while (!quitApplication) {
-		SDL_Event event;
-		while (SDL_PollEvent(&event)) {
-			if (event.type == SDL_QUIT) {
-				SDL_Quit();
-				exit(0);
-				break;
-			}
-		}
+		GL::ProcessEvents();
 	}
 
 	SDL_Quit();

@@ -17,7 +17,7 @@ GL::GL(const char* windowName, int windowWidth, int windowHeight)
 	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 
 	window = SDL_CreateWindow(windowName, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-        windowWidth, windowHeight, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+        windowWidth, windowHeight, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN | SDL_WINDOW_FULLSCREEN);
 
 	if (window == NULL)
 	{
@@ -27,4 +27,23 @@ GL::GL(const char* windowName, int windowWidth, int windowHeight)
 	}
 
 	glContext = SDL_GL_CreateContext(window);
+}
+
+void GL::ProcessEvents()
+{
+	SDL_Event event;
+	while (SDL_PollEvent(&event))
+	{
+		if (event.key.type == SDL_KEYDOWN)
+		{
+			ProcessKeyboardEvent(event.key.keysym);
+		}
+	}
+}
+
+void GL::ProcessKeyboardEvent(SDL_Keysym key) {
+	if (key.scancode == SDL_SCANCODE_W)
+	{
+		std::cout << "Pressed the W key" << std::endl;
+	}
 }
