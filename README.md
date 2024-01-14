@@ -1,1 +1,2 @@
-# opengl-basic-2D
+# Build
+- You need SDL2 library and OpenGL to build this thing.
