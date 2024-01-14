@@ -8,9 +8,6 @@
 const int SCREEN_WIDTH = 1920;
 const int SCREEN_HEIGHT = 1080;
 
-int bpp = 0;
-int flags = 0;
-
 int main() {
 	int sdlInit = SDL_Init( SDL_INIT_VIDEO | SDL_INIT_TIMER );
 
