@@ -25,9 +25,11 @@ int main() {
 	
 	bool quitApplication = false;
 
-	// Main game loop
+	// Main loop
 	while (!quitApplication) {
 		GL::ProcessEvents();
+
+		gl->Render();
 	}
 
 	SDL_Quit();

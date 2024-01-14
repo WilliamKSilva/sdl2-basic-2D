@@ -36,6 +36,22 @@ GL::GL(const char* windowName, int windowWidth, int windowHeight)
 		std::cout << "Failed to initialize GLAD" << std::endl;
 		exit(-1);
 	}
+
+	int makeContextCurrent = SDL_GL_MakeCurrent(window, glContext);
+
+	if (makeContextCurrent < 0)
+	{
+		std::cout << "Failed to make OpenGL context current" << std::endl;
+		exit(-1);
+	}
+
+}
+
+void GL::Render()
+{
+	glClearColor(255, 255, 255, 255);
+	glClear(GL_COLOR_BUFFER_BIT);
+	SDL_GL_SwapWindow(window);
 }
 
 void GL::ProcessEvents()
@@ -50,7 +66,8 @@ void GL::ProcessEvents()
 	}
 }
 
-void GL::ProcessKeyboardEvent(SDL_Keysym key) {
+void GL::ProcessKeyboardEvent(SDL_Keysym key)
+{
 	if (key.scancode == SDL_SCANCODE_W)
 	{
 		std::cout << "Pressed the W key" << std::endl;
