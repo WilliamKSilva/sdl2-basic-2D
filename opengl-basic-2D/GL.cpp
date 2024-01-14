@@ -1,4 +1,5 @@
 #include "SDL2/SDL.h" 
+#include "glad/glad.h"
 #include "GL.h"
 #include <stdlib.h>
 #include <iostream>
@@ -27,6 +28,14 @@ GL::GL(const char* windowName, int windowWidth, int windowHeight)
 	}
 
 	glContext = SDL_GL_CreateContext(window);
+
+	// glad: load all OpenGL function pointers
+	// ---------------------------------------
+	if (!gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress))
+	{
+		std::cout << "Failed to initialize GLAD" << std::endl;
+		exit(-1);
+	}
 }
 
 void GL::ProcessEvents()

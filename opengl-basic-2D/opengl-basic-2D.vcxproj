@@ -71,8 +71,9 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)\opengl-basic-2D\libs\SDL2\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\opengl-basic-2D\libs\GLAD\include;$(SolutionDir)\opengl-basic-2D\libs\SDL2\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\opengl-basic-2D\libs\SDL2\lib;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SolutionDir)\opengl-basic-2D\libs\GLAD\lib;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -134,6 +135,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GL.cpp" />
+    <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
