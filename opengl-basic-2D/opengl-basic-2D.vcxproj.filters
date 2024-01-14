@@ -4,8 +4,10 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="GL.cpp" />
     <ClCompile Include="glad.c" />
+    <ClCompile Include="shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GL.h" />
+    <ClInclude Include="shader.h" />
   </ItemGroup>
 </Project>

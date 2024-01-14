@@ -1,6 +1,7 @@
 #include "SDL2/SDL.h" 
 #include "glad/glad.h"
 #include "GL.h"
+#include "shader.h"
 #include <stdlib.h>
 #include <iostream>
 
@@ -49,6 +50,7 @@ GL::GL(const char* windowName, int windowWidth, int windowHeight)
 
 void GL::Render()
 {
+	shaderProgram.Use();
 	glClearColor(255, 255, 255, 255);
 	glClear(GL_COLOR_BUFFER_BIT);
 	SDL_GL_SwapWindow(window);
