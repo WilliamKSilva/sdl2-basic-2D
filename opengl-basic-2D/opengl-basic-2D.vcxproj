@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)\opengl-basic-2D\libs\GLAD\include;$(SolutionDir)\opengl-basic-2D\libs\SDL2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)\opengl-basic-2D\libs\SDL2\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\opengl-basic-2D\libs\GLFW\include;$(SolutionDir)\opengl-basic-2D\libs\GLAD\include;$(SolutionDir)\opengl-basic-2D\libs\SDL2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\opengl-basic-2D\libs\GLFW\lib;$(SolutionDir)\opengl-basic-2D\libs\SDL2\lib;$(LibraryPath)</LibraryPath>
     <SourcePath>$(SolutionDir)\opengl-basic-2D\libs\GLAD\lib;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -113,7 +113,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2d.lib;SDL2maind.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;SDL2d.lib;SDL2maind.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

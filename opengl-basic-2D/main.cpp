@@ -19,6 +19,7 @@ int main() {
 	
 	const char* windowName = "Basic 2D stuff :P";
 	GL* gl = new GL(windowName, SCREEN_WIDTH, SCREEN_HEIGHT);
+	gl->SetupVertexArrayObject();
 	
 	bool quitApplication = false;
 
