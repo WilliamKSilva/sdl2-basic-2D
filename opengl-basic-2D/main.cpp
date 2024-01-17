@@ -1,7 +1,5 @@
 #define SDL_MAIN_HANDLED
-#include "SDL2/SDL.H"
-#include "SDL2/SDL_events.h"
-#include "SDL2/SDL_video.h"
+#include <SDL2/SDL.h>
 #include "GL.h"
 #include "iostream"
 
@@ -16,16 +14,16 @@ int main() {
 		std::cout << SDL_GetError() << std::endl;
 		return -1;
 	}
-	
+
 	const char* windowName = "Basic 2D stuff :P";
 	GL* gl = new GL(windowName, SCREEN_WIDTH, SCREEN_HEIGHT);
 	gl->SetupVertexArrayObject();
-	
+
 	bool quitApplication = false;
 
 	// Main loop
 	while (!quitApplication) {
-		GL::ProcessEvents();
+		gl->ProcessEvents();
 
 		gl->Render();
 	}

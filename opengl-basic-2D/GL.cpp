@@ -1,4 +1,4 @@
-#include "SDL2/SDL.h" 
+#include <SDL2/SDL.h> 
 #include "glad/glad.h"
 #include "GL.h"
 #include "shader.h"
@@ -23,7 +23,6 @@ GL::GL(const char* windowName, int windowWidth, int windowHeight)
 
 	if (window == NULL)
 	{
-		std::cout << SDL_GetError() << std::endl;
 		SDL_Quit();
 		exit(-1);
 	}
@@ -71,9 +70,19 @@ void GL::ProcessEvents()
 	SDL_Event event;
 	while (SDL_PollEvent(&event))
 	{
-		if (event.key.type == SDL_KEYDOWN)
+		if (event.type == SDL_KEYDOWN)
 		{
 			ProcessKeyboardEvent(event.key.keysym);
+		}
+
+		if (event.type == SDL_WINDOWEVENT)
+		{
+			if (event.window.event == SDL_WINDOWEVENT_CLOSE)
+			{
+				ClearState();
+				break;
+			}
+
 		}
 	}
 }
@@ -120,4 +129,13 @@ void GL::SetupVertexArrayObject()
 void GL::BindVertexArrayObject(int VAO)
 {
 	glBindVertexArray(VAO);
+}
+
+void GL::ClearState()
+{
+	glDeleteVertexArrays(1, &VAO);
+	glDeleteBuffers(1, &VBO);
+	glDeleteProgram(shaderProgram->ID);
+	SDL_Quit();
+	exit(-1);
 }
