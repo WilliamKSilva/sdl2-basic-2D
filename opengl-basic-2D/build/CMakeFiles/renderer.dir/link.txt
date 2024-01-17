@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/renderer.dir/main.cpp.o CMakeFiles/renderer.dir/glad.c.o CMakeFiles/renderer.dir/GL.cpp.o CMakeFiles/renderer.dir/shader.cpp.o -o renderer  /usr/lib/x86_64-linux-gnu/libSDL2.so 
