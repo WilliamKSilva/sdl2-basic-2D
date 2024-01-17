@@ -1,3 +1,0 @@
-/home/williamkds/Projects/opengl-basic-2D/opengl-basic-2D/build/CMakeFiles/renderer.dir
-/home/williamkds/Projects/opengl-basic-2D/opengl-basic-2D/build/CMakeFiles/edit_cache.dir
-/home/williamkds/Projects/opengl-basic-2D/opengl-basic-2D/build/CMakeFiles/rebuild_cache.dir
