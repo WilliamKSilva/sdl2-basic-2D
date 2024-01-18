@@ -1,6 +1,10 @@
+#include <SDL2/SDL_render.h>
+#include <SDL2/SDL_video.h>
+#include <cstdlib>
 #define SDL_MAIN_HANDLED
 #include <SDL2/SDL.h>
-#include "GL.h"
+#include "renderer.h"
+#include "input.h"
 #include "iostream"
 
 const int SCREEN_WIDTH = 1920;
@@ -16,18 +20,22 @@ int main() {
 	}
 
 	const char* windowName = "Basic 2D stuff :P";
-	GL* gl = new GL(windowName, SCREEN_WIDTH, SCREEN_HEIGHT);
-	gl->SetupVertexArrayObject();
+  SDLRenderer sdlRenderer = SDLRenderer("Basic 2D stuff :P", SCREEN_WIDTH, SCREEN_HEIGHT);
+  Input input = Input();
 
-	bool quitApplication = false;
+  bool windowShouldClose = false;
 
-	// Main loop
-	while (!quitApplication) {
-		gl->ProcessEvents();
-
-		gl->Render();
+  /* Main Loop */
+	while (!windowShouldClose) {
+    /* Input */
+    input.Process(sdlRenderer.renderer, &windowShouldClose);
+    /* Render stuff */
+    sdlRenderer.Render();
 	}
 
+  /* Quit game */
+  SDL_DestroyRenderer(sdlRenderer.renderer);
+  SDL_DestroyWindow(sdlRenderer.window);
 	SDL_Quit();
 	std::cout << "Quit..." << std::endl;
 
